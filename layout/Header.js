@@ -10,7 +10,7 @@ function Header() {
     const data = await signOut({ redirect: false, callbackUrl: '/' })
     router.push(data.url)
   }
-  console.log(session)
+
   return (
     <header className='container header'>
       <h1>DFS Tracker</h1>
@@ -21,9 +21,14 @@ function Header() {
           <p className='signout-link' onClick={() => handleLogout()}>
             Sign Out
           </p>
+        ) : pathname === '/login' ? (
+          <Link href='/'>Home</Link>
         ) : (
           <Link href='/login'>Login</Link>
         )}
+        {pathname !== '/' && pathname !== '/login' && !session ? (
+          <Link href='/'>Home</Link>
+        ) : null}
       </div>
     </header>
   )

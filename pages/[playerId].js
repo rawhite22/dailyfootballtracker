@@ -5,13 +5,10 @@ import { getPlayer } from '../library/players'
 function PlayerPage({ player }) {
   return (
     <div className='player-page container'>
-      <Link href='/'>Back</Link>
       <h2>{player.name}</h2>
       <h3>Weekly Breakdown</h3>
       <div className='weekly-report-container'>
-        {player.weeks.map((week) => (
-          <Week week={week} />
-        ))}
+        {player && player.weeks.map((week) => <Week week={week} />)}
       </div>
     </div>
   )

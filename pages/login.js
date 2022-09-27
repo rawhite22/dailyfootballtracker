@@ -19,7 +19,7 @@ function Login() {
       router.replace('/admin')
     }
   }
-  console.log(router)
+
   return (
     <div className='sign-in-container'>
       <form onSubmit={(e) => handleSubmit(e)}>

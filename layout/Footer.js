@@ -1,4 +1,12 @@
+import Link from 'next/link'
+
 function Footer() {
-  return <div>Footer</div>
+  return (
+    <footer>
+      <Link href='https://github.com/rawhite22/dailyfootballtracker'>
+        Source Code
+      </Link>
+    </footer>
+  )
 }
 export default Footer
