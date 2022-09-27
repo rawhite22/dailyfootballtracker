@@ -8,7 +8,8 @@ function PlayerPage({ player }) {
       <h2>{player.name}</h2>
       <h3>Weekly Breakdown</h3>
       <div className='weekly-report-container'>
-        {player && player.weeks.map((week) => <Week week={week} />)}
+        {player &&
+          player.weeks.map((week) => <Week key={week._id} week={week} />)}
       </div>
     </div>
   )
