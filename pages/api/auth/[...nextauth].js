@@ -7,7 +7,7 @@ import bcrypt from 'bcryptjs'
 export const authOptions = {
   session: {
     strategy: 'jwt',
-    maxAge: 60,
+    maxAge: 600,
   },
   providers: [
     CredentialsProvider({
@@ -40,7 +40,6 @@ export const authOptions = {
       return session
     },
     jwt: async ({ user, token }) => {
-      console.log(user)
       if (user) {
         token.uid = user.id
       }

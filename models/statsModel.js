@@ -1,56 +1,54 @@
 import { Schema, model, models } from 'mongoose'
 
-const statsSchema = new Schema([
-  {
-    name: String,
-    weeks: [
-      {
-        isWin: Boolean,
-        week: Number,
-        score: Number,
-        scoringByPosition: {
-          qb: {
-            salary: Number,
-            points: Number,
-          },
-          rb1: {
-            salary: Number,
-            points: Number,
-          },
-          rb2: {
-            salary: Number,
-            points: Number,
-          },
-          wr1: {
-            salary: Number,
-            points: Number,
-          },
-          wr2: {
-            salary: Number,
-            points: Number,
-          },
-          wr3: {
-            salary: Number,
-            points: Number,
-          },
-          te: {
-            salary: Number,
-            points: Number,
-          },
-          flex: {
-            salary: Number,
-            points: Number,
-            flexPosition: String,
-          },
-          def: {
-            salary: Number,
-            points: Number,
-          },
+const statsSchema = new Schema({
+  name: String,
+  weeks: [
+    {
+      isWin: Boolean,
+      week: String,
+      score: String,
+      scoringByPosition: {
+        qb: {
+          salary: String,
+          points: String,
+        },
+        rb1: {
+          salary: String,
+          points: String,
+        },
+        rb2: {
+          salary: String,
+          points: String,
+        },
+        wr1: {
+          salary: String,
+          points: String,
+        },
+        wr2: {
+          salary: String,
+          points: String,
+        },
+        wr3: {
+          salary: String,
+          points: String,
+        },
+        te: {
+          salary: String,
+          points: String,
+        },
+        flex: {
+          salary: String,
+          points: String,
+          flexPosition: String,
+        },
+        def: {
+          salary: String,
+          points: String,
         },
       },
-    ],
-  },
-])
+    },
+  ],
+})
 
 const Stats = models.Stats || model('Stats', statsSchema)
 
