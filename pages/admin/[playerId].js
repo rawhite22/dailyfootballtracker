@@ -3,6 +3,7 @@ import { getToken } from 'next-auth/jwt'
 import Link from 'next/link'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+import axios from 'axios'
 const secret = process.env.NEXTAUTH_SECRET
 
 const options = [
@@ -70,7 +71,7 @@ function Player(props) {
       },
     },
   })
-  const { query } = useRouter()
+  const { query, push } = useRouter()
 
   const handleSubmit = async (e, id) => {
     e.preventDefault()
@@ -97,12 +98,24 @@ function Player(props) {
       },
     }))
   }
+
+  const removePlayer = async () => {
+    const res = await axios.delete(`/api/deleteplayer/${query.playerId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-type': 'application/json',
+      },
+    })
+    if (res.data.msg === 'success') {
+      push('/admin')
+    }
+  }
   return (
     <main className='player-edit-page container'>
       <nav>
         <Link href={'/admin'}>Players list...</Link>
       </nav>
-
+      <h4 onClick={() => removePlayer()}>Remove Player</h4>
       <h3 className='new-week'>Add new week</h3>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className='radio-win-loss'>
