@@ -14,20 +14,28 @@ function Header() {
   return (
     <header className='container header'>
       <h1>DFS Tracker</h1>
-      <div className='link-container'>
+      <div className='links-container'>
         {pathname === '/admin' ? <Link href='/'>Home</Link> : null}
         {session && pathname === '/' ? <Link href='/admin'>Admin</Link> : null}
         {session ? (
-          <p className='signout-link' onClick={() => handleLogout()}>
-            Sign Out
-          </p>
+          <div className='link-container'>
+            <p className='signout-link' onClick={() => handleLogout()}>
+              Sign Out
+            </p>
+          </div>
         ) : pathname === '/login' ? (
-          <Link href='/'>Home</Link>
+          <div className='link-container'>
+            <Link href='/'>Home</Link>
+          </div>
         ) : (
-          <Link href='/login'>Login</Link>
+          <div className='link-container'>
+            <Link href='/login'>Login</Link>
+          </div>
         )}
         {pathname !== '/' && pathname !== '/login' && !session ? (
-          <Link href='/'>Home</Link>
+          <div className='link-container'>
+            <Link href='/'>Home</Link>
+          </div>
         ) : null}
       </div>
     </header>

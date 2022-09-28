@@ -4,7 +4,7 @@ function Footer() {
   return (
     <footer>
       <Link href='https://github.com/rawhite22/dailyfootballtracker'>
-        Source Code
+        GitHub
       </Link>
     </footer>
   )

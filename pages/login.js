@@ -21,7 +21,7 @@ function Login() {
   }
 
   return (
-    <div className='sign-in-container'>
+    <main className='sign-in-container'>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className='username'>
           <label htmlFor='username'>Username</label>
@@ -43,7 +43,7 @@ function Login() {
         </div>
         <button type='submit'>Login</button>
       </form>
-    </div>
+    </main>
   )
 }
 export default Login

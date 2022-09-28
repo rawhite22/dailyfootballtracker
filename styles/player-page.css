@@ -1,0 +1,50 @@
+.player-page a {
+  color: dodgerblue;
+}
+
+.player-page .weekly-report-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+@media screen and (max-width: 780px) {
+  .player-page .weekly-report-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.player-page .weekly-report-container .weekly-report {
+  background-color: #192027;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.player-page .weekly-report-container .weekly-report .position-report {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+@media screen and (max-width: 780px) {
+  .player-page .weekly-report-container .weekly-report .position-report {
+    gap: 0.2rem;
+  }
+}
+
+.player-page .weekly-report-container .weekly-report .position-report .weekly-pos {
+  background-color: #121212;
+  border-radius: 5px;
+  padding: 0.2rem;
+}
