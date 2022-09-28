@@ -98,14 +98,14 @@ function Player(props) {
     }))
   }
   return (
-    <div>
+    <main className='player-edit-page container'>
       <nav>
-        <Link href={'/admin'}>back to admin</Link>
+        <Link href={'/admin'}>Players list...</Link>
       </nav>
-      <h2>add new week</h2>
 
+      <h3 className='new-week'>Add new week</h3>
       <form onSubmit={(e) => handleSubmit(e)}>
-        <div className='radio-win'>
+        <div className='radio-win-loss'>
           <input
             type='radio'
             name='isWinTrue'
@@ -136,7 +136,7 @@ function Player(props) {
           <label>Loss</label>
         </div>
         <div className='week-number'>
-          <label>Week</label>
+          <label>Week: </label>
           <select
             value={newWeek.week}
             onChange={(e) => {
@@ -153,7 +153,7 @@ function Player(props) {
           </select>
         </div>
         <div className='total-score'>
-          <label>Score</label>
+          <label>Total Score: </label>
           <input
             type='number'
             value={newWeek.score}
@@ -166,141 +166,135 @@ function Player(props) {
           />
         </div>
         <div className='position-info'>
-          <div className='qb'>
+          <div className='qb pos-input-container'>
             <h3>QB</h3>
-            <label>Salary</label>
+            <label>Salary: </label>
             <input
               type='number'
               value={newWeek.scoringByPosition.qb.salary}
               onChange={(e) => handleStatChange(e, 'qb', 'salary')}
             />
-            <label>Points</label>
+            <label className='points-label-add-player'>Points: </label>
             <input
               type='number'
               value={newWeek.scoringByPosition.qb.points}
               onChange={(e) => handleStatChange(e, 'qb', 'points')}
             />
           </div>
-          <div className='rb1'>
+          <div className='rb1 pos-input-container'>
             <h3>RB 1</h3>
-            <label>Salary</label>
+            <label>Salary: </label>
             <input
               type='number'
               value={newWeek.scoringByPosition.rb1.salary}
               onChange={(e) => handleStatChange(e, 'rb1', 'salary')}
             />
-            <label>Points</label>
+            <label className='points-label-add-player'>Points: </label>
             <input
               type='number'
               value={newWeek.scoringByPosition.rb1.points}
               onChange={(e) => handleStatChange(e, 'rb1', 'points')}
             />
           </div>
-          <div className='rb2'>
+          <div className='rb2 pos-input-container'>
             <h3>RB 2</h3>
-            <label>Salary</label>
+            <label>Salary: </label>
             <input
               type='number'
               value={newWeek.scoringByPosition.rb2.salary}
               onChange={(e) => handleStatChange(e, 'rb2', 'salary')}
             />
-            <label>Points</label>
+            <label className='points-label-add-player'>Points: </label>
             <input
               type='number'
               value={newWeek.scoringByPosition.rb2.points}
               onChange={(e) => handleStatChange(e, 'rb2', 'points')}
             />
           </div>
-          <div className='wr1'>
+          <div className='wr1 pos-input-container'>
             <h3>WR 1</h3>
-            <label>Salary</label>
+            <label>Salary: </label>
             <input
               type='number'
               value={newWeek.scoringByPosition.wr1.salary}
               onChange={(e) => handleStatChange(e, 'wr1', 'salary')}
             />
-            <label>Points</label>
+            <label className='points-label-add-player'>Points: </label>
             <input
               type='number'
               value={newWeek.scoringByPosition.wr1.points}
               onChange={(e) => handleStatChange(e, 'wr1', 'points')}
             />
           </div>
-          <div className='wr2'>
+          <div className='wr2 pos-input-container'>
             <h3>WR 2</h3>
-            <label>Salary</label>
+            <label>Salary: </label>
             <input
               type='number'
               value={newWeek.scoringByPosition.wr2.salary}
               onChange={(e) => handleStatChange(e, 'wr2', 'salary')}
             />
-            <label>Points</label>
+            <label className='points-label-add-player'>Points: </label>
             <input
               type='number'
               value={newWeek.scoringByPosition.wr2.points}
               onChange={(e) => handleStatChange(e, 'wr2', 'points')}
             />
           </div>
-          <div className='wr3'>
+          <div className='wr3 pos-input-container'>
             <h3>WR 3</h3>
-            <label>Salary</label>
+            <label>Salary: </label>
             <input
               type='number'
               value={newWeek.scoringByPosition.wr3.salary}
               onChange={(e) => handleStatChange(e, 'wr3', 'salary')}
             />
-            <label>Points</label>
+            <label className='points-label-add-player'>Points: </label>
             <input
               type='number'
               value={newWeek.scoringByPosition.wr3.points}
               onChange={(e) => handleStatChange(e, 'wr3', 'points')}
             />
           </div>
-          <div className='te'>
+          <div className='te pos-input-container'>
             <h3>TE</h3>
-            <label>Salary</label>
+            <label>Salary: </label>
             <input
               type='number'
               value={newWeek.scoringByPosition.te.salary}
               onChange={(e) => handleStatChange(e, 'te', 'salary')}
             />
-            <label>Points</label>
+            <label className='points-label-add-player'>Points: </label>
             <input
               type='number'
               value={newWeek.scoringByPosition.te.points}
               onChange={(e) => handleStatChange(e, 'te', 'points')}
             />
           </div>
-          <div className='flex'>
+          <div className='flex pos-input-container'>
             <h3>Flex</h3>
-            <label>Salary</label>
+            <label>Salary: </label>
             <input
               type='number'
               value={newWeek.scoringByPosition.flex.salary}
               onChange={(e) => handleStatChange(e, 'flex', 'salary')}
             />
-            <label>Points</label>
+            <label className='points-label-add-player'>Points: </label>
             <input
               type='number'
               value={newWeek.scoringByPosition.flex.points}
               onChange={(e) => handleStatChange(e, 'flex', 'points')}
             />
-            <label>Flex Position</label>
-            <input
-              type='text'
-              value={newWeek.scoringByPosition.flex.flexPosition}
-              onChange={(e) => handleStatChange(e, 'flex', 'flexPosition')}
-            />
           </div>
-          <div className='def'>
+          <div className='def pos-input-container'>
             <h3>Defense</h3>
-            <label>Salary</label>
+            <label>Salary: </label>
             <input
               type='number'
               value={newWeek.scoringByPosition.def.salary}
               onChange={(e) => handleStatChange(e, 'def', 'salary')}
             />
-            <label>Points</label>
+            <label className='points-label-add-player'>Points: </label>
             <input
               type='number'
               value={newWeek.scoringByPosition.def.points}
@@ -310,7 +304,7 @@ function Player(props) {
         </div>
         <button type='submit'>Add Week</button>
       </form>
-    </div>
+    </main>
   )
 }
 export default Player

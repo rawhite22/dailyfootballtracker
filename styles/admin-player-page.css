@@ -1,0 +1,55 @@
+.player-edit-page h3 {
+  margin-bottom: 0.5rem;
+}
+
+.player-edit-page .new-week {
+  margin: 0.5rem 0;
+}
+
+.player-edit-page form .radio-win-loss {
+  margin-bottom: 0.5rem;
+}
+
+.player-edit-page form .radio-win-loss label {
+  margin-left: 0.2rem;
+  font-size: 1.2rem;
+}
+
+.player-edit-page form .radio-win-loss input:nth-of-type(even) {
+  margin-left: 0.2rem;
+}
+
+.player-edit-page form .points-label-add-player {
+  margin-left: 0.5rem;
+}
+
+.player-edit-page form input[type='number'] {
+  height: 1.8rem;
+  padding: 0 0.5rem;
+  font-size: 0.9rem;
+  width: 25%;
+}
+
+.player-edit-page form .week-number {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.player-edit-page form button[type='submit'] {
+  margin: 1rem 0;
+  width: 100%;
+  background-color: #1f1f1f;
+  border: none;
+  color: rgba(30, 143, 255, 0.849);
+  padding: 0.5rem 0.4rem;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+.player-edit-page form .position-info .pos-input-container {
+  background-color: #1f1f1f;
+  text-align: center;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+}
