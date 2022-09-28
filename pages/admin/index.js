@@ -10,21 +10,13 @@ const secret = process.env.NEXTAUTH_SECRET
 
 function Admin(props) {
   const [players, setPlayers] = useState(props.allPlayers)
-  const [isLoading, setIsLoading] = useState(true)
-  const [loadedSession, setLoadedSession] = useState()
-  useEffect(() => {
-    getSession().then((session) => {
-      setLoadedSession(session)
-      setIsLoading(false)
-    })
-  }, [])
-
   return (
-    <div>
+    <main className='admin-page container'>
+      <h2 className='current-players-title'>Add New Player</h2>
       <AddPlayer token={props.token} setPlayers={setPlayers} />
-      <h2>Current Players</h2>
+      <h2 className='current-players-title'>Current Players</h2>
       <PlayerList players={players} />
-    </div>
+    </main>
   )
 }
 export default Admin

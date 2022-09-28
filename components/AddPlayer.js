@@ -55,21 +55,27 @@ function AddPlayer({ token, setPlayers }) {
   }
   return (
     <section className='add-user'>
-      <h2>Add New Player</h2>
       <form onSubmit={(e) => handleSubmitf(e)}>
         <div className='add-user-name'>
-          <label htmlFor='name'>Name</label>
-          <input
-            type='text'
-            name='name'
-            id='name'
-            value={newUser.name}
-            onChange={(e) =>
-              setNewUser((prevState) => ({ ...newUser, name: e.target.value }))
-            }
-          />
+          <div className='label-container'>
+            <label htmlFor='name'>Name:</label>
+            <input
+              type='text'
+              name='name'
+              id='name'
+              value={newUser.name}
+              onChange={(e) =>
+                setNewUser((prevState) => ({
+                  ...newUser,
+                  name: e.target.value,
+                }))
+              }
+            />
+          </div>
         </div>
-        <button type='submit'>Add User</button>
+        <button className='add-new-player-btn' type='submit'>
+          Add User
+        </button>
       </form>
     </section>
   )

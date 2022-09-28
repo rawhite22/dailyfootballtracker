@@ -3,9 +3,13 @@ function Player({ player }) {
   const { push } = useRouter()
 
   return (
-    <div key={player._id}>
+    <div key={player._id} className='player-admin'>
       <p>{player.name}</p>
-      <button onClick={() => push(`/admin/${player._id}`)}>Edit Player</button>
+      <button
+        className='edit-player-btn'
+        onClick={() => push(`/admin/${player._id}`)}>
+        Edit Player
+      </button>
     </div>
   )
 }
