@@ -1,10 +1,13 @@
+import Header from '../components/Header'
 import { getSession } from 'next-auth/react'
-
 import { getAllPlayers } from '../library/players'
 import PlayerInfo from '../components/PlayerInfo'
+
 export default function Home({ session, allPlayers }) {
   return (
     <main className='container'>
+      <Header title='DFS Weekly Tracker | Home' />
+
       <div className='player-info'>
         {allPlayers &&
           allPlayers.map((player) => (

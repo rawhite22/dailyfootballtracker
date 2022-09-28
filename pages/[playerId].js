@@ -1,10 +1,12 @@
 import Link from 'next/link'
+import Header from '../components/Header'
 import Week from '../components/Week'
 import { getPlayer } from '../library/players'
 
 function PlayerPage({ player }) {
   return (
     <div className='player-page container'>
+      <Header title={`DFS Weekly Tracker | ${player.name}`} />
       <h2>{player.name}</h2>
       <h3>Weekly Breakdown</h3>
       <div className='weekly-report-container'>

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import axios from 'axios'
+import Header from '../../components/Header'
 const secret = process.env.NEXTAUTH_SECRET
 
 const options = [
@@ -112,6 +113,7 @@ function Player(props) {
   }
   return (
     <main className='player-edit-page container'>
+      <Header title='DFS Weekly Tracker | Admin Edit Player ' />
       <nav>
         <Link href={'/admin'}>Players list...</Link>
       </nav>

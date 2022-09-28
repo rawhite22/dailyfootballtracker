@@ -5,6 +5,7 @@ import PlayerList from '../../components/PlayerList'
 import { useEffect, useState } from 'react'
 import { getAllPlayers } from '../../library/players'
 import Link from 'next/link'
+import Header from '../../components/Header'
 
 const secret = process.env.NEXTAUTH_SECRET
 
@@ -12,6 +13,7 @@ function Admin(props) {
   const [players, setPlayers] = useState(props.allPlayers)
   return (
     <main className='admin-page container'>
+      <Header title='DFS Weekly Tracker | Admin' />
       <h2 className='current-players-title'>Add New Player</h2>
       <AddPlayer token={props.token} setPlayers={setPlayers} />
       <h2 className='current-players-title'>Current Players</h2>

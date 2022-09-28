@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/router'
+import Header from '../components/Header'
 function Login() {
   const router = useRouter()
   const usernameInputRef = useRef()
@@ -27,6 +28,7 @@ function Login() {
 
   return (
     <main className='sign-in-container'>
+      <Header title='DFS Weekly Tracker | Admin Login' />
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className='username'>
           <label htmlFor='username'>Username</label>
