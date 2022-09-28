@@ -103,6 +103,7 @@
 .player-info .player-info-individual .total-score {
   margin: 0.5rem 0;
   font-size: 1.2rem;
+  text-align: center;
 }
 
 .player-info .player-info-individual .stats-info {
