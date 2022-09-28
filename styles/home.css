@@ -40,6 +40,61 @@
   padding: 0 0.5rem;
 }
 
+.player-info .player-info-individual .info-box {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
+.player-info .player-info-individual .info-box .ex {
+  font-size: 0.7rem;
+}
+
+.player-info .player-info-individual .info-box .info-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.player-info .player-info-individual .info-box .info-container p {
+  font-size: 0.7rem;
+  font-weight: bolder;
+  margin-right: 0.5rem;
+}
+
+.player-info .player-info-individual .info-box .green {
+  background-color: green;
+}
+
+.player-info .player-info-individual .info-box .yellow {
+  background-color: yellow;
+}
+
+.player-info .player-info-individual .info-box .red {
+  background-color: red;
+}
+
+.player-info .player-info-individual .info-box .info-circle {
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 50%;
+}
+
 .player-info .player-info-individual .player-name {
   margin-bottom: 0.5rem;
 }

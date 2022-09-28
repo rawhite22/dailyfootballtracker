@@ -69,6 +69,21 @@ function PlayerInfo({ player }) {
       <p className='total-score'>
         Average total score {avg(player.weeks, 'score', null)}
       </p>
+      <div className='info-box'>
+        <p className='ex'>Scoring Average to be in the money</p>
+        <div className='info-container'>
+          <p>above</p>
+          <div className='green info-circle'></div>
+        </div>
+        <div className='info-container'>
+          <p>fringe</p>
+          <div className='yellow info-circle'></div>
+        </div>
+        <div className='info-container'>
+          <p>below</p>
+          <div className='red info-circle'></div>
+        </div>
+      </div>
       <div className='stats-info'>
         <div className='label-container'>
           <h4>Position</h4>
