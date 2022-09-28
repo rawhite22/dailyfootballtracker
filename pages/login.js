@@ -1,12 +1,14 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/router'
 function Login() {
   const router = useRouter()
   const usernameInputRef = useRef()
   const passwordInputRef = useRef()
+  const [error, setError] = useState(false)
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setError(false)
     const enteredUsername = usernameInputRef.current.value
     const enteredPassword = passwordInputRef.current.value
     const result = await signIn('credentials', {
@@ -14,9 +16,12 @@ function Login() {
       username: enteredUsername,
       password: enteredPassword,
     })
+    console.log(result)
     if (!result.error) {
       // set some auth state
       router.replace('/admin')
+    } else {
+      setError(true)
     }
   }
 
@@ -42,6 +47,11 @@ function Login() {
           />
         </div>
         <button type='submit'>Login</button>
+        {error && (
+          <div className='error'>
+            <p>Invalid credentials please try again.</p>
+          </div>
+        )}
       </form>
     </main>
   )

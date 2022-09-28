@@ -64,4 +64,12 @@
   max-width: 600px;
   height: 2rem;
   cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.sign-in-container form .error {
+  background-color: rgba(255, 0, 0, 0.637);
+  padding: 0.2rem;
+  text-align: center;
+  border-radius: 0.2rem;
 }
