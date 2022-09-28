@@ -2,6 +2,9 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 const avg = (weeks, type, pos) => {
+  if (weeks.length === 0) {
+    return 0
+  }
   if (!pos) {
     let scoringArr = weeks.map((week) => Number(week[type]))
 
