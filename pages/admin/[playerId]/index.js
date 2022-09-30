@@ -4,7 +4,8 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import axios from 'axios'
-import Header from '../../components/Header'
+import Header from '../../../components/Header'
+import { getPlayer } from '../../../library/players'
 const secret = process.env.NEXTAUTH_SECRET
 
 const options = [
@@ -27,7 +28,7 @@ const options = [
   { label: '17', value: 17 },
   { label: '18', value: 18 },
 ]
-function Player(props) {
+function Player({ player }) {
   const [newWeek, setNewWeek] = useState({
     isWin: false,
     week: 1,
@@ -87,8 +88,8 @@ function Player(props) {
     const data = await res.json()
     console.log(data)
   }
-  const handleStatChange = (e, position, category) => {
-    setNewWeek((prevState) => ({
+  const handleStatChange = (e, position, category, useSt8fn) => {
+    useSt8fn((prevState) => ({
       ...prevState,
       scoringByPosition: {
         ...prevState.scoringByPosition,
@@ -118,6 +119,13 @@ function Player(props) {
         <Link href={'/admin'}>Players list...</Link>
       </nav>
       <h4 onClick={() => removePlayer()}>Remove Player</h4>
+      <h3>Edit Previous Weeks</h3>
+      {player.weeks.length > 0 &&
+        player.weeks.map((week) => (
+          <Link href={`/admin/${player._id}/${week._id}`}>
+            <a>edit week {week.week}</a>
+          </Link>
+        ))}
       <h3 className='new-week'>Add new week</h3>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className='radio-win-loss'>
@@ -187,13 +195,13 @@ function Player(props) {
             <input
               type='number'
               value={newWeek.scoringByPosition.qb.salary}
-              onChange={(e) => handleStatChange(e, 'qb', 'salary')}
+              onChange={(e) => handleStatChange(e, 'qb', 'salary', setNewWeek)}
             />
             <label className='points-label-add-player'>Points: </label>
             <input
               type='number'
               value={newWeek.scoringByPosition.qb.points}
-              onChange={(e) => handleStatChange(e, 'qb', 'points')}
+              onChange={(e) => handleStatChange(e, 'qb', 'points', setNewWeek)}
             />
           </div>
           <div className='rb1 pos-input-container'>
@@ -202,13 +210,13 @@ function Player(props) {
             <input
               type='number'
               value={newWeek.scoringByPosition.rb1.salary}
-              onChange={(e) => handleStatChange(e, 'rb1', 'salary')}
+              onChange={(e) => handleStatChange(e, 'rb1', 'salary', setNewWeek)}
             />
             <label className='points-label-add-player'>Points: </label>
             <input
               type='number'
               value={newWeek.scoringByPosition.rb1.points}
-              onChange={(e) => handleStatChange(e, 'rb1', 'points')}
+              onChange={(e) => handleStatChange(e, 'rb1', 'points', setNewWeek)}
             />
           </div>
           <div className='rb2 pos-input-container'>
@@ -217,13 +225,13 @@ function Player(props) {
             <input
               type='number'
               value={newWeek.scoringByPosition.rb2.salary}
-              onChange={(e) => handleStatChange(e, 'rb2', 'salary')}
+              onChange={(e) => handleStatChange(e, 'rb2', 'salary', setNewWeek)}
             />
             <label className='points-label-add-player'>Points: </label>
             <input
               type='number'
               value={newWeek.scoringByPosition.rb2.points}
-              onChange={(e) => handleStatChange(e, 'rb2', 'points')}
+              onChange={(e) => handleStatChange(e, 'rb2', 'points', setNewWeek)}
             />
           </div>
           <div className='wr1 pos-input-container'>
@@ -232,13 +240,13 @@ function Player(props) {
             <input
               type='number'
               value={newWeek.scoringByPosition.wr1.salary}
-              onChange={(e) => handleStatChange(e, 'wr1', 'salary')}
+              onChange={(e) => handleStatChange(e, 'wr1', 'salary', setNewWeek)}
             />
             <label className='points-label-add-player'>Points: </label>
             <input
               type='number'
               value={newWeek.scoringByPosition.wr1.points}
-              onChange={(e) => handleStatChange(e, 'wr1', 'points')}
+              onChange={(e) => handleStatChange(e, 'wr1', 'points', setNewWeek)}
             />
           </div>
           <div className='wr2 pos-input-container'>
@@ -247,13 +255,13 @@ function Player(props) {
             <input
               type='number'
               value={newWeek.scoringByPosition.wr2.salary}
-              onChange={(e) => handleStatChange(e, 'wr2', 'salary')}
+              onChange={(e) => handleStatChange(e, 'wr2', 'salary', setNewWeek)}
             />
             <label className='points-label-add-player'>Points: </label>
             <input
               type='number'
               value={newWeek.scoringByPosition.wr2.points}
-              onChange={(e) => handleStatChange(e, 'wr2', 'points')}
+              onChange={(e) => handleStatChange(e, 'wr2', 'points', setNewWeek)}
             />
           </div>
           <div className='wr3 pos-input-container'>
@@ -262,13 +270,13 @@ function Player(props) {
             <input
               type='number'
               value={newWeek.scoringByPosition.wr3.salary}
-              onChange={(e) => handleStatChange(e, 'wr3', 'salary')}
+              onChange={(e) => handleStatChange(e, 'wr3', 'salary', setNewWeek)}
             />
             <label className='points-label-add-player'>Points: </label>
             <input
               type='number'
               value={newWeek.scoringByPosition.wr3.points}
-              onChange={(e) => handleStatChange(e, 'wr3', 'points')}
+              onChange={(e) => handleStatChange(e, 'wr3', 'points', setNewWeek)}
             />
           </div>
           <div className='te pos-input-container'>
@@ -277,13 +285,13 @@ function Player(props) {
             <input
               type='number'
               value={newWeek.scoringByPosition.te.salary}
-              onChange={(e) => handleStatChange(e, 'te', 'salary')}
+              onChange={(e) => handleStatChange(e, 'te', 'salary', setNewWeek)}
             />
             <label className='points-label-add-player'>Points: </label>
             <input
               type='number'
               value={newWeek.scoringByPosition.te.points}
-              onChange={(e) => handleStatChange(e, 'te', 'points')}
+              onChange={(e) => handleStatChange(e, 'te', 'points', setNewWeek)}
             />
           </div>
           <div className='flex pos-input-container'>
@@ -292,13 +300,17 @@ function Player(props) {
             <input
               type='number'
               value={newWeek.scoringByPosition.flex.salary}
-              onChange={(e) => handleStatChange(e, 'flex', 'salary')}
+              onChange={(e) =>
+                handleStatChange(e, 'flex', 'salary', setNewWeek)
+              }
             />
             <label className='points-label-add-player'>Points: </label>
             <input
               type='number'
               value={newWeek.scoringByPosition.flex.points}
-              onChange={(e) => handleStatChange(e, 'flex', 'points')}
+              onChange={(e) =>
+                handleStatChange(e, 'flex', 'points', setNewWeek)
+              }
             />
           </div>
           <div className='def pos-input-container'>
@@ -307,13 +319,13 @@ function Player(props) {
             <input
               type='number'
               value={newWeek.scoringByPosition.def.salary}
-              onChange={(e) => handleStatChange(e, 'def', 'salary')}
+              onChange={(e) => handleStatChange(e, 'def', 'salary', setNewWeek)}
             />
             <label className='points-label-add-player'>Points: </label>
             <input
               type='number'
               value={newWeek.scoringByPosition.def.points}
-              onChange={(e) => handleStatChange(e, 'def', 'points')}
+              onChange={(e) => handleStatChange(e, 'def', 'points', setNewWeek)}
             />
           </div>
         </div>
@@ -327,6 +339,7 @@ export default Player
 export async function getServerSideProps(context) {
   const session = await getSession({ req: context.req })
   const token = await getToken({ req: context.req, secret })
+  const player = await getPlayer(context.params.playerId)
 
   if (!session) {
     return {
@@ -338,6 +351,6 @@ export async function getServerSideProps(context) {
   }
 
   return {
-    props: { session, token },
+    props: { session, token, player },
   }
 }

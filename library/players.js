@@ -25,3 +25,17 @@ export async function getPlayer(id) {
     return error.message
   }
 }
+
+export async function getWeek(pid, weekid) {
+  try {
+    await mongoConnect()
+    const player = await Stats.findById(pid)
+    if (!player) {
+      throw new Error('User not found')
+    }
+
+    return JSON.parse(JSON.stringify(player))
+  } catch (error) {
+    return error.message
+  }
+}
