@@ -23,7 +23,6 @@ function Login() {
     })
     console.log(result)
     if (!result.error) {
-      setLoading(false)
       usernameInputRef.current.value = ''
       passwordInputRef.current.value = ''
       router.replace('/admin')
@@ -38,6 +37,7 @@ function Login() {
   return (
     <main className='sign-in-container'>
       <Header title='DFS Weekly Tracker | Admin Login' />
+      <h2>Admin Login</h2>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className='username'>
           <label htmlFor='username'>Username</label>
@@ -59,7 +59,7 @@ function Login() {
         </div>
         {loading ? (
           <button type='submit' disabled>
-            <FontAwesomeIcon rotate icon={faSpinnerThird} />
+            <FontAwesomeIcon rotate={true} icon={faSpinnerThird} />
           </button>
         ) : (
           <button type='submit'>Login</button>

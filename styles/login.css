@@ -8,6 +8,14 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.sign-in-container h2 {
+  margin-bottom: 0.5rem;
 }
 
 .sign-in-container form {
@@ -20,7 +28,7 @@
           flex-direction: column;
   min-height: 80vh;
   padding: 0 2rem;
-  width: 600px;
+  max-width: 600px;
 }
 
 .sign-in-container form label {
@@ -65,6 +73,17 @@
   height: 2rem;
   cursor: pointer;
   margin-bottom: 1rem;
+  border: none;
+  color: white;
+  font-weight: bolder;
+  font-size: 0.9rem;
+  background-color: dodgerblue;
+  border-radius: 0.2rem;
+}
+
+.sign-in-container form button[type='submit']:disabled {
+  color: white;
+  background-color: #1e8fffb7;
 }
 
 .sign-in-container form .error {

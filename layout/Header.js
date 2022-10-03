@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useSession, signOut } from 'next-auth/react'
-import { useEffect } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLock, faRightFromBracket } from '@fortawesome/pro-solid-svg-icons'
 function Header() {
   const { pathname } = useRouter()
   const { data: session, status } = useSession()
@@ -15,28 +16,32 @@ function Header() {
     <header className='container header'>
       <h1>DFS Tracker</h1>
       <div className='links-container'>
-        {pathname === '/admin' ? <Link href='/'>Home</Link> : null}
-        {session && pathname === '/' ? <Link href='/admin'>Admin</Link> : null}
-        {session ? (
-          <div className='link-container'>
-            <p className='signout-link' onClick={() => handleLogout()}>
-              Sign Out
-            </p>
-          </div>
-        ) : pathname === '/login' ? (
-          <div className='link-container'>
+        <ul>
+          <li>
             <Link href='/'>Home</Link>
-          </div>
-        ) : (
-          <div className='link-container'>
-            <Link href='/login'>Login</Link>
-          </div>
-        )}
-        {pathname !== '/' && pathname !== '/login' && !session ? (
-          <div className='link-container'>
-            <Link href='/'>Home</Link>
-          </div>
-        ) : null}
+          </li>
+          {session ? (
+            <li>
+              <Link href='/admin'>Admin</Link>
+            </li>
+          ) : null}
+          {session ? (
+            <li>
+              <p className='signout-link' onClick={() => handleLogout()}>
+                <FontAwesomeIcon
+                  className='admin-icon'
+                  icon={faRightFromBracket}
+                />
+              </p>
+            </li>
+          ) : (
+            <li>
+              <Link href='/login'>
+                <FontAwesomeIcon className='admin-icon' icon={faLock} />
+              </Link>
+            </li>
+          )}
+        </ul>
       </div>
     </header>
   )

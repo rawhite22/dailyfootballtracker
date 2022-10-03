@@ -17,29 +17,24 @@
   }
 }
 
-.header .links-container {
+.header .links-container ul {
+  list-style: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
 }
 
-.header .links-container .link-container {
-  padding: 0 0.2rem;
-  margin-left: 0.5rem;
+.header .links-container ul li .admin-icon {
+  color: dodgerblue;
+  cursor: pointer;
+}
+
+.header .links-container ul li:nth-of-type(1n + 1) {
+  margin-right: 0.5rem;
 }
 
 .header .links-container .signout-link {
-  color: rgba(30, 143, 255, 0.623);
+  color: #1e8fff;
   cursor: pointer;
-  font-weight: bolder;
-}
-
-.header .links-container a {
   font-weight: bolder;
 }
