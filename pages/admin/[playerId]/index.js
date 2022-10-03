@@ -122,9 +122,11 @@ function Player({ player }) {
       <h3>Edit Previous Weeks</h3>
       {player.weeks.length > 0 &&
         player.weeks.map((week) => (
-          <Link href={`/admin/${player._id}/${week._id}`}>
-            <a>edit week {week.week}</a>
-          </Link>
+          <div key={week._id} className='edit-week-container'>
+            <Link href={`/admin/${player._id}/${week._id}`}>
+              <a>Edit week {week.week}</a>
+            </Link>
+          </div>
         ))}
       <h3 className='new-week'>Add new week</h3>
       <form onSubmit={(e) => handleSubmit(e)}>

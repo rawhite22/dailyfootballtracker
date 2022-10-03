@@ -2,13 +2,17 @@ import { useRef, useState } from 'react'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import Header from '../components/Header'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinnerThird } from '@fortawesome/pro-solid-svg-icons'
 function Login() {
   const router = useRouter()
   const usernameInputRef = useRef()
   const passwordInputRef = useRef()
   const [error, setError] = useState(false)
+  const [loading, setLoading] = useState(false)
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setLoading(true)
     setError(false)
     const enteredUsername = usernameInputRef.current.value
     const enteredPassword = passwordInputRef.current.value
@@ -19,10 +23,15 @@ function Login() {
     })
     console.log(result)
     if (!result.error) {
-      // set some auth state
+      setLoading(false)
+      usernameInputRef.current.value = ''
+      passwordInputRef.current.value = ''
       router.replace('/admin')
     } else {
       setError(true)
+      usernameInputRef.current.value = ''
+      passwordInputRef.current.value = ''
+      setLoading(false)
     }
   }
 
@@ -48,7 +57,14 @@ function Login() {
             ref={passwordInputRef}
           />
         </div>
-        <button type='submit'>Login</button>
+        {loading ? (
+          <button type='submit' disabled>
+            <FontAwesomeIcon rotate icon={faSpinnerThird} />
+          </button>
+        ) : (
+          <button type='submit'>Login</button>
+        )}
+
         {error && (
           <div className='error'>
             <p>Invalid credentials please try again.</p>
