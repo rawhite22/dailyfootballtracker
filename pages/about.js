@@ -13,7 +13,7 @@ function About() {
       <p>WRs: 60 points or more</p>
       <p>TE: 20 points or more</p>
       <p>Flex: 20 points or more</p>
-      <p>Flex: 10 points or more</p>
+      <p>DEF: 10 points or more</p>
       <h4>Built With</h4>
       <p>React</p>
       <p>Next.js</p>
