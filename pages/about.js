@@ -9,8 +9,8 @@ function About() {
       </p>
       <h4>Scoring Glossary</h4>
       <p>QB: 20 points or more</p>
-      <p>RB's: 40 points or more</p>
-      <p>WR's: 60 points or more</p>
+      <p>RBs: 40 points or more</p>
+      <p>WRs: 60 points or more</p>
       <p>TE: 20 points or more</p>
       <p>Flex: 20 points or more</p>
       <p>Flex: 10 points or more</p>
