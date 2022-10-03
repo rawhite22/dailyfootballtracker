@@ -21,7 +21,6 @@ function Login() {
       username: enteredUsername,
       password: enteredPassword,
     })
-    console.log(result)
     if (!result.error) {
       usernameInputRef.current.value = ''
       passwordInputRef.current.value = ''
@@ -59,7 +58,7 @@ function Login() {
         </div>
         {loading ? (
           <button type='submit' disabled>
-            <FontAwesomeIcon rotate={true} icon={faSpinnerThird} />
+            <FontAwesomeIcon rotate icon={faSpinnerThird} />
           </button>
         ) : (
           <button type='submit'>Login</button>

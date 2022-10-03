@@ -53,7 +53,7 @@ function WeekId({ player, week }) {
     }))
   }
   return (
-    <main className='week-edit-page'>
+    <main className='container week-edit-page'>
       {' '}
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className='radio-win-loss'>
