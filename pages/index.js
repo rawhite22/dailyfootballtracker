@@ -21,7 +21,7 @@ export default function Home({ session, allPlayers }) {
 export async function getServerSideProps(context) {
   const session = await getSession({ req: context.req })
   const allPlayers = await getAllPlayers()
-  console.log(session)
+
   if (!session) {
     return {
       props: { session, allPlayers },
