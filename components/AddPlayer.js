@@ -15,29 +15,15 @@ function AddPlayer({ token, setPlayers }) {
     name: '',
     weeks: [],
   })
+  const [error, setError] = useState(false)
+  const [loading, setLoading] = useState(false)
   const handleSubmit = async (e) => {
     e.preventDefault()
     const expired = expCheck(token.exp)
+    setError(false)
+    setLoading(true)
     if (expired) {
-      console.log('session expired')
-    } else {
-      const res = await axios.post(
-        '/api/addplayer',
-        { name: newUser.name },
-        {
-          headers: {
-            authorization: `Bearer ${token.uid}`,
-          },
-        }
-      )
-      console.log(res.status)
-      setPlayers((prevState) => [...prevState, res.data])
-    }
-  }
-  const handleSubmitf = async (e) => {
-    e.preventDefault()
-    const expired = expCheck(token.exp)
-    if (expired) {
+      setLoading(false)
       console.log('session expired')
     } else {
       const res = await fetch('/api/addplayer', {
@@ -50,12 +36,19 @@ function AddPlayer({ token, setPlayers }) {
         },
       })
       const data = await res.json()
-      setPlayers((prevState) => [...prevState, data])
+      if (data.name) {
+        setPlayers((prevState) => [...prevState, data])
+        setNewUser((prevState) => ({ ...prevState, name: '' }))
+        setLoading(false)
+      } else {
+        setLoading(false)
+        setError(true)
+      }
     }
   }
   return (
     <section className='add-user'>
-      <form onSubmit={(e) => handleSubmitf(e)}>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <div className='add-user-name'>
           <div className='label-container'>
             <label htmlFor='name'>Name:</label>
@@ -73,9 +66,17 @@ function AddPlayer({ token, setPlayers }) {
             />
           </div>
         </div>
-        <button className='add-new-player-btn' type='submit'>
-          Add User
-        </button>
+        {loading ? (
+          <button disabled className='add-new-player-btn' type='submit'>
+            Adding User
+          </button>
+        ) : (
+          <button className='add-new-player-btn' type='submit'>
+            Add User
+          </button>
+        )}
+
+        {error && <p className='error'>Something went wrong...</p>}
       </form>
     </section>
   )

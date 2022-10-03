@@ -8,7 +8,7 @@ export default async function handler(request, response) {
       if (request.body.name === '') {
         throw new Error('Enter a players name.')
       }
-      console.log(request.body)
+
       await mongoConnect()
       let player = await Stats.findOne({ name: request.body.name })
       if (!player) {
