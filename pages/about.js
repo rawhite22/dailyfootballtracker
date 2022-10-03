@@ -18,6 +18,7 @@ function About() {
       <p>React</p>
       <p>Next.js</p>
       <p>MongoDB</p>
+      <p>Authentication with Next Auth & JWT</p>
     </main>
   )
 }
