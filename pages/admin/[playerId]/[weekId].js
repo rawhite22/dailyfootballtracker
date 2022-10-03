@@ -40,8 +40,8 @@ function WeekId({ player, week }) {
     const data = await res.json()
     console.log(data)
   }
-  const handleStatChange = (e, position, category, useSt8fn) => {
-    useSt8fn((prevState) => ({
+  const handleStatChange = (e, position, category) => {
+    setUpdatedWeek((prevState) => ({
       ...prevState,
       scoringByPosition: {
         ...prevState.scoringByPosition,
@@ -123,17 +123,13 @@ function WeekId({ player, week }) {
             <input
               type='number'
               value={updatedWeek.scoringByPosition.qb.salary}
-              onChange={(e) =>
-                handleStatChange(e, 'qb', 'salary', setUpdatedWeek)
-              }
+              onChange={(e) => handleStatChange(e, 'qb', 'salary')}
             />
             <label className='points-label-add-player'>Points: </label>
             <input
               type='number'
               value={updatedWeek.scoringByPosition.qb.points}
-              onChange={(e) =>
-                handleStatChange(e, 'qb', 'points', setUpdatedWeek)
-              }
+              onChange={(e) => handleStatChange(e, 'qb', 'points')}
             />
           </div>
           <div className='rb1 pos-input-container'>
@@ -142,17 +138,13 @@ function WeekId({ player, week }) {
             <input
               type='number'
               value={updatedWeek.scoringByPosition.rb1.salary}
-              onChange={(e) =>
-                handleStatChange(e, 'rb1', 'salary', setUpdatedWeek)
-              }
+              onChange={(e) => handleStatChange(e, 'rb1', 'salary')}
             />
             <label className='points-label-add-player'>Points: </label>
             <input
               type='number'
               value={updatedWeek.scoringByPosition.rb1.points}
-              onChange={(e) =>
-                handleStatChange(e, 'rb1', 'points', setUpdatedWeek)
-              }
+              onChange={(e) => handleStatChange(e, 'rb1', 'points')}
             />
           </div>
           <div className='rb2 pos-input-container'>
@@ -161,17 +153,13 @@ function WeekId({ player, week }) {
             <input
               type='number'
               value={updatedWeek.scoringByPosition.rb2.salary}
-              onChange={(e) =>
-                handleStatChange(e, 'rb2', 'salary', setUpdatedWeek)
-              }
+              onChange={(e) => handleStatChange(e, 'rb2', 'salary')}
             />
             <label className='points-label-add-player'>Points: </label>
             <input
               type='number'
               value={updatedWeek.scoringByPosition.rb2.points}
-              onChange={(e) =>
-                handleStatChange(e, 'rb2', 'points', setUpdatedWeek)
-              }
+              onChange={(e) => handleStatChange(e, 'rb2', 'points')}
             />
           </div>
           <div className='wr1 pos-input-container'>
@@ -180,17 +168,13 @@ function WeekId({ player, week }) {
             <input
               type='number'
               value={updatedWeek.scoringByPosition.wr1.salary}
-              onChange={(e) =>
-                handleStatChange(e, 'wr1', 'salary', setUpdatedWeek)
-              }
+              onChange={(e) => handleStatChange(e, 'wr1', 'salary')}
             />
             <label className='points-label-add-player'>Points: </label>
             <input
               type='number'
               value={updatedWeek.scoringByPosition.wr1.points}
-              onChange={(e) =>
-                handleStatChange(e, 'wr1', 'points', setUpdatedWeek)
-              }
+              onChange={(e) => handleStatChange(e, 'wr1', 'points')}
             />
           </div>
           <div className='wr2 pos-input-container'>
@@ -199,17 +183,13 @@ function WeekId({ player, week }) {
             <input
               type='number'
               value={updatedWeek.scoringByPosition.wr2.salary}
-              onChange={(e) =>
-                handleStatChange(e, 'wr2', 'salary', setUpdatedWeek)
-              }
+              onChange={(e) => handleStatChange(e, 'wr2', 'salary')}
             />
             <label className='points-label-add-player'>Points: </label>
             <input
               type='number'
               value={updatedWeek.scoringByPosition.wr2.points}
-              onChange={(e) =>
-                handleStatChange(e, 'wr2', 'points', setUpdatedWeek)
-              }
+              onChange={(e) => handleStatChange(e, 'wr2', 'points')}
             />
           </div>
           <div className='wr3 pos-input-container'>
@@ -218,17 +198,13 @@ function WeekId({ player, week }) {
             <input
               type='number'
               value={updatedWeek.scoringByPosition.wr3.salary}
-              onChange={(e) =>
-                handleStatChange(e, 'wr3', 'salary', setUpdatedWeek)
-              }
+              onChange={(e) => handleStatChange(e, 'wr3', 'salary')}
             />
             <label className='points-label-add-player'>Points: </label>
             <input
               type='number'
               value={updatedWeek.scoringByPosition.wr3.points}
-              onChange={(e) =>
-                handleStatChange(e, 'wr3', 'points', setUpdatedWeek)
-              }
+              onChange={(e) => handleStatChange(e, 'wr3', 'points')}
             />
           </div>
           <div className='te pos-input-container'>
@@ -237,17 +213,13 @@ function WeekId({ player, week }) {
             <input
               type='number'
               value={updatedWeek.scoringByPosition.te.salary}
-              onChange={(e) =>
-                handleStatChange(e, 'te', 'salary', setUpdatedWeek)
-              }
+              onChange={(e) => handleStatChange(e, 'te', 'salary')}
             />
             <label className='points-label-add-player'>Points: </label>
             <input
               type='number'
               value={updatedWeek.scoringByPosition.te.points}
-              onChange={(e) =>
-                handleStatChange(e, 'te', 'points', setUpdatedWeek)
-              }
+              onChange={(e) => handleStatChange(e, 'te', 'points')}
             />
           </div>
           <div className='flex pos-input-container'>
@@ -256,17 +228,13 @@ function WeekId({ player, week }) {
             <input
               type='number'
               value={updatedWeek.scoringByPosition.flex.salary}
-              onChange={(e) =>
-                handleStatChange(e, 'flex', 'salary', setUpdatedWeek)
-              }
+              onChange={(e) => handleStatChange(e, 'flex', 'salary')}
             />
             <label className='points-label-add-player'>Points: </label>
             <input
               type='number'
               value={updatedWeek.scoringByPosition.flex.points}
-              onChange={(e) =>
-                handleStatChange(e, 'flex', 'points', setUpdatedWeek)
-              }
+              onChange={(e) => handleStatChange(e, 'flex', 'points')}
             />
           </div>
           <div className='def pos-input-container'>
@@ -275,17 +243,13 @@ function WeekId({ player, week }) {
             <input
               type='number'
               value={updatedWeek.scoringByPosition.def.salary}
-              onChange={(e) =>
-                handleStatChange(e, 'def', 'salary', setUpdatedWeek)
-              }
+              onChange={(e) => handleStatChange(e, 'def', 'salary')}
             />
             <label className='points-label-add-player'>Points: </label>
             <input
               type='number'
               value={updatedWeek.scoringByPosition.def.points}
-              onChange={(e) =>
-                handleStatChange(e, 'def', 'points', setUpdatedWeek)
-              }
+              onChange={(e) => handleStatChange(e, 'def', 'points')}
             />
           </div>
         </div>
