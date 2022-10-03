@@ -1,3 +1,47 @@
+.week-edit-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.week-edit-page button[type='submit'] {
+  margin: 1rem 0;
+  width: 100%;
+  background-color: #1f1f1f;
+  border: none;
+  color: rgba(30, 143, 255, 0.849);
+  padding: 0.5rem 0.4rem;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+.week-edit-page .pos-input-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 320px;
+  background-color: #1f1f1f;
+  margin-bottom: 0.5rem;
+  padding: 0.4rem;
+  border-radius: 0.2rem;
+}
+
+.week-edit-page .position-info h3 {
+  margin-bottom: 0.2rem;
+}
+
 .week-edit-page .position-info input {
-  height: 1.2rem;
+  height: 1.5rem;
+  font-size: 1rem;
 }

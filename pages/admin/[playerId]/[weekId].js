@@ -25,7 +25,6 @@ const options = [
 
 function WeekId({ player, week }) {
   const { query } = useRouter()
-  console.log(query)
   const [updatedWeek, setUpdatedWeek] = useState(week[0])
   const handleSubmit = async (e, id) => {
     e.preventDefault()
