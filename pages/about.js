@@ -3,8 +3,9 @@ function About() {
     <main className='container about'>
       <h4>What is it?</h4>
       <p>
-        DFS Tracker is a simple tool to track the points per salary you're
-        getting from the players drafted from draftkings daily fantasy sports.
+        DFS Tracker is a simple tool to track the average points and average
+        salary from the players drafted from our teams on draftkings daily
+        fantasy football.
       </p>
       <h4>Scoring Glossary</h4>
       <p>QB: 20 points or more</p>
